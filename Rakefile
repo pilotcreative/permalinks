@@ -4,9 +4,9 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "permalinks"
+    gem.name = "objectreload-permalinks"
     gem.summary = "Simple way to create permalinks."
-    gem.email = "matid@matid.net"
+    gem.email = "gems@objectreload.com"
     gem.homepage = "http://github.com/objectreload/permalinks"
     gem.authors = ["Mateusz Drozdzynski"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
