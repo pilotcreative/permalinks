@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'activerecord'
 require File.dirname(__FILE__)+'/../lib/permalinks'
-require 'expectations'
+require 'shoulda'
 require 'logger'
 
 ActiveRecord::Base.configurations = {'sqlite3' => {:adapter => 'sqlite3', :database => ':memory:'}}

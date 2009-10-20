@@ -1,48 +1,65 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-Expectations do
-  expect "1-something-cool" do
-    p = Post.new :title => "Something cool"
-    p.id = 1
-    p.save!
-    p.to_param
-  end
+class CountryTest < Test::Unit::TestCase
+  context "Country model" do
+    setup do
+      @country = Country.new :name => "United Kingdom"
+      @country.save!
+    end
+    subject { @country }
 
-  expect "5-united-kingdom" do
-    c = Country.new :name => "United Kingdom"
-    c.id = 5
-    c.save!
-    c.to_param
-  end
+    context "regular country name" do
+      should "return permalink" do
+        assert_equal "#{@country.id}-united-kingdom", @country.to_param
+      end
+    end
 
-  expect "6666-united-kingdom" do
-    c = Country.new :name => "United    Kingdom   "
-    c.id = 6666
-    c.save!
-    c.to_param
-  end
+    context "country name with a lot of spaces" do
+      should "return permalink" do
+        @country.name = "United    Kingdom   "
+        @country.save
+        assert_equal "#{@country.id}-united-kingdom", @country.to_param
+      end
+    end
 
-  expect "11111-united-kingdom-is-cold" do
-    p = Post.new :title => "   United    Kingdom is cold   "
-    p.id = 11111
-    p.save!
-    p.to_param
+    context "country name with capital letters" do
+      should "return permalink" do
+        @country.name = " USA "
+        @country.save
+        assert_equal "#{@country.id}-usa", @country.to_param
+      end
+    end
   end
+end
 
-  #added - capital letters
-  expect "6-usa" do
-    c = Country.new :name => "USA"
-    c.id = 6
-    c.save!
-    c.to_param
-  end
+class PostTest < Test::Unit::TestCase
+  context "Post model" do
+    setup do
+      @post = Post.new :title => "Something cool"
+      @post.save!
+    end
+    subject { @post }
 
-  # added - should clean up strings with arbitrary spaces
-  expect "7-spaces-should-not-matter" do
-    p = Post.new
-    p.id = 7;
-    p.title = "Spaces Should    Not MATTER"
-    p.save!
-    p.to_param
+    context "regular post title" do
+      should "return permalink" do
+        assert_equal "#{@post.id}-something-cool", @post.to_param
+      end
+    end
+
+    context "post title with a lot of white spaces" do
+      should "return permalink" do
+        @post.title = " Snow is     cold   "
+        @post.save!
+        assert_equal "#{@post.id}-snow-is-cold", @post.to_param
+      end
+    end
+
+    context "post title with capital letters" do
+      should "return permalink" do
+        @post.title = " SOMETHING i really like to DO   is sleeping "
+        @post.save!
+        assert_equal "#{@post.id}-something-i-really-like-to-do-is-sleeping", @post.to_param
+      end
+    end
   end
 end
