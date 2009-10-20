@@ -14,18 +14,27 @@ class CountryTest < Test::Unit::TestCase
       end
     end
 
-    context "country name with a lot of spaces" do
+    context "country name with a lot of white spaces" do
       should "return permalink" do
         @country.name = "United    Kingdom   "
-        @country.save
+        @country.save!
         assert_equal "#{@country.id}-united-kingdom", @country.to_param
+      end
+    end
+
+    context "country with id equal nil" do
+      should "return permalink" do
+        @country.name = "2-tratata"
+        @country.id = nil
+        @country.save!
+        assert_equal "#{@country.id}-2-tratata", @country.to_param
       end
     end
 
     context "country name with capital letters" do
       should "return permalink" do
         @country.name = " USA "
-        @country.save
+        @country.save!
         assert_equal "#{@country.id}-usa", @country.to_param
       end
     end
