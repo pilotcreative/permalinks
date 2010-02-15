@@ -1,5 +1,5 @@
 require "singleton"
-require "active_record"
+
 require "active_support/core_ext/object/misc"
 
 require "permalinks/configuration"

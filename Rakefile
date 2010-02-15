@@ -10,7 +10,8 @@ begin
     gem.summary = "Simple way to create permalinks."
     gem.email = "gems@objectreload.com"
     gem.homepage = "http://github.com/objectreload/permalinks"
-    gem.authors = ["Mateusz Drozdzynski", "Ewa Limanowka", "Jakub Kuźma"]
+    gem.authors = ["Mateusz Drożdżyński", "Ewa Limanówka", "Jakub Kuźma"]
+    gem.add_dependency "activesupport", ">=2.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
