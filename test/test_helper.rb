@@ -12,6 +12,8 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table(:posts) { |t| t.string  :title, :default => "" }
 end
 
+ActiveRecord::Base.extend(Permalinks::HasPermalink)
+
 class Country < ActiveRecord::Base
   has_permalink
 end

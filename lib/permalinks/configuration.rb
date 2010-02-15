@@ -2,10 +2,10 @@ module Permalinks
   class Configuration
     include Singleton
 
-    attr_accessor :custom_replace_table
+    attr_accessor :substitutions
+  end
 
-    def self.configuration
-      returning(Configuration.instance) { |c| yield c if block_given? }
-    end
+  def self.configuration
+    returning(Configuration.instance) { |c| yield(c) if block_given? }
   end
 end
