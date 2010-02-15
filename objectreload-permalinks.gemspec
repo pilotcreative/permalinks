@@ -35,8 +35,8 @@ Gem::Specification.new do |s|
   s.summary = %q{Simple way to create permalinks.}
   s.test_files = [
     "test/country_test.rb",
-     "test/test_helper.rb",
-     "test/post_test.rb"
+     "test/post_test.rb",
+     "test/test_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
