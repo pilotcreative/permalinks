@@ -2,7 +2,15 @@ module Permalinks
   class Configuration
     include Singleton
 
-    attr_accessor :substitutions
+    attr_writer :substitutions, :input_encoding
+
+    def substitutions
+      @substitutions ||= {}
+    end
+
+    def input_encoding
+      @input_encoding ||= "UTF-8"
+    end
   end
 
   def self.configuration
