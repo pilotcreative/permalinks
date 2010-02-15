@@ -1,23 +1,15 @@
-require 'rubygems'
-require 'activerecord'
-require File.dirname(__FILE__)+'/../lib/permalinks'
-require 'shoulda'
-require 'logger'
+require "rubygems"
+require "active_record"
+require "shoulda"
 
-ActiveRecord::Base.configurations = {'sqlite3' => {:adapter => 'sqlite3', :database => ':memory:'}}
-ActiveRecord::Base.establish_connection('sqlite3')
+require File.join(File.dirname(__FILE__), "..", "lib", "permalinks")
 
-ActiveRecord::Base.logger = Logger.new(STDERR)
-ActiveRecord::Base.logger.level = Logger::WARN
+ActiveRecord::Base.establish_connection(:adapter  => "sqlite3", :database => ":memory:")
+ActiveRecord::Migration.verbose = false
 
 ActiveRecord::Schema.define(:version => 0) do
-  create_table :countries do |t|
-    t.string  :name, :default => ''
-  end
-
-  create_table :posts do |t|
-    t.string  :title, :default => ''
-  end
+  create_table(:countries) { |t| t.string  :name, :default => "" }
+  create_table(:posts) { |t| t.string  :title, :default => "" }
 end
 
 class Country < ActiveRecord::Base
