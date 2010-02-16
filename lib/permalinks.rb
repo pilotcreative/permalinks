@@ -26,7 +26,7 @@ module Permalinks
     end
 
     def transliterate!(str, encoding)
-      result = Iconv.iconv("ASCII//TRANSLIT", encoding.to_s, str).first
+      result = Iconv.iconv("ASCII//TRANSLIT//IGNORE", encoding.to_s, str).first
       str.replace(result)
     end
 
