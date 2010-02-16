@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{objectreload-permalinks}
-  s.version = "0.2.2"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mateusz Drożdżyński", "Ewa Limanówka", "Jakub Kuźma"]
@@ -34,8 +34,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Simple way to create permalinks.}
   s.test_files = [
-    "test/country_test.rb",
-     "test/post_test.rb",
+    "test/post_test.rb",
+     "test/country_test.rb",
      "test/test_helper.rb"
   ]
 
