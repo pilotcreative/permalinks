@@ -34,8 +34,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Simple way to create permalinks.}
   s.test_files = [
-    "test/post_test.rb",
-     "test/country_test.rb",
+    "test/country_test.rb",
+     "test/post_test.rb",
      "test/test_helper.rb"
   ]
 
