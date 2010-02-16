@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{objectreload-permalinks}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mateusz Drożdżyński", "Ewa Limanówka", "Jakub Kuźma"]
-  s.date = %q{2010-02-15}
+  s.date = %q{2010-02-16}
   s.email = %q{gems@objectreload.com}
   s.extra_rdoc_files = [
     "README"
@@ -19,11 +19,11 @@ Gem::Specification.new do |s|
      "README",
      "Rakefile",
      "VERSION",
-     "init.rb",
      "lib/permalinks.rb",
      "lib/permalinks/configuration.rb",
      "lib/permalinks/has_permalink.rb",
      "objectreload-permalinks.gemspec",
+     "rails/init.rb",
      "test/country_test.rb",
      "test/post_test.rb",
      "test/test_helper.rb"
@@ -34,8 +34,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Simple way to create permalinks.}
   s.test_files = [
-    "test/country_test.rb",
-     "test/post_test.rb",
+    "test/post_test.rb",
+     "test/country_test.rb",
      "test/test_helper.rb"
   ]
 
