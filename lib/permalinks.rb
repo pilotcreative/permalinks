@@ -43,3 +43,5 @@ module Permalinks
     end
   end
 end
+
+ActiveRecord::Base.extend(Permalinks::HasPermalink)
