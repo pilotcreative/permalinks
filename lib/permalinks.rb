@@ -1,15 +1,13 @@
 require "iconv"
 require "singleton"
 
-require "active_support/core_ext/object/misc"
-
 require "permalinks/configuration"
 require "permalinks/has_permalink"
 
 module Permalinks
   class << self
     def to_param(*args)
-      returning(args * "-") do |result|
+      args.join("-").tap do |result|
         replace_using_table!(result, configuration.substitutions)
         transliterate!(result, configuration.input_encoding)
         result.downcase!
