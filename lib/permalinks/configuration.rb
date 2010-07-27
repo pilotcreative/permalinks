@@ -14,6 +14,6 @@ module Permalinks
   end
 
   def self.configuration
-    returning(Configuration.instance) { |c| yield(c) if block_given? }
+    Configuration.instance.tap { |c| yield(c) if block_given? }
   end
 end
